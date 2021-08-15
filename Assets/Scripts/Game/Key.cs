@@ -9,7 +9,7 @@ public class Key : Items
     {
         if (collision.CompareTag("Player"))
         {
-            inv.AddKeyInvt(ID, nameObj, description);
+            inv.AddKeyInvt(_id, _nameObj, _description);
             Destroy(gameObject);
         }
     }

@@ -16,7 +16,7 @@ public class Amulet : Items
     {
         if (collision.CompareTag("Player"))
         {
-            inv.ActiveSlotAmulet(ID, nameObj, description);
+            inv.ActiveSlotAmulet(_id, _nameObj, _description);
             Destroy(gameObject);
         }
     }

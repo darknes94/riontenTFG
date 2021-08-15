@@ -30,7 +30,7 @@ public class Stalactite : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.CompareTag("Player")) && !activate)
+        if (collision.CompareTag("Player") && !activate)
         {
             activate = true;
             move = true;

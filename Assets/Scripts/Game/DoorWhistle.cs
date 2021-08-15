@@ -19,8 +19,7 @@ public class DoorWhistle : Interactable
         if (collision.CompareTag("Player") && !open)
         {
             // si tenemos la llave silvato
-            if (collision.gameObject.GetComponent<PlayerController>().
-                IsKey(codeDoor))
+            if (collision.gameObject.GetComponent<PlayerController>().IsKey(codeDoor))
             {
                 canActivate = true;
             }

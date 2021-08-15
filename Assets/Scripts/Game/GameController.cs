@@ -150,9 +150,9 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             keyAux = Instantiate(keyPrefab, new Vector3(i, 0, 0), Quaternion.Euler(0, 0, -35));
-            keyAux.GetComponent<Key>().SetID(i);
-            keyAux.GetComponent<Key>().SetName(nameKeysDict[i]);
-            keyAux.GetComponent<Key>().SetDescription(descpKeysDict[i]);
+            keyAux.GetComponent<Key>().Id = i;
+            keyAux.GetComponent<Key>().NameObj = nameKeysDict[i];
+            keyAux.GetComponent<Key>().Description = descpKeysDict[i];
             keys.Add(keyAux);
         }
         keyAux = null;
@@ -204,9 +204,9 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
             amuAux = Instantiate(amuletPrefab, new Vector3(-5-i, -2, 0), Quaternion.Euler(0, 0, -35));
-            amuAux.GetComponent<Amulet>().SetID(i);
-            amuAux.GetComponent<Amulet>().SetName(nameAmuDict[i]);
-            amuAux.GetComponent<Amulet>().SetDescription(descpAmuDict[i]);
+            amuAux.GetComponent<Amulet>().Id = i;
+            amuAux.GetComponent<Amulet>().NameObj = nameAmuDict[i];
+            amuAux.GetComponent<Amulet>().Description = descpAmuDict[i];
             amuAux.GetComponent<Amulet>().SetColor(colorAmuDict[i]);
             amulets.Add(amuAux);
         }
@@ -250,9 +250,9 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             itemAux = Instantiate(prefabDict[i]);
-            itemAux.GetComponent<Items>().SetID(i);
-            itemAux.GetComponent<Items>().SetName(nameItemDict[i]);
-            itemAux.GetComponent<Items>().SetDescription(descpItemDict[i]);
+            itemAux.GetComponent<Items>().Id = i;
+            itemAux.GetComponent<Items>().NameObj = nameItemDict[i];
+            itemAux.GetComponent<Items>().Description = descpItemDict[i];
             items.Add(itemAux);
         }
         itemAux = null;

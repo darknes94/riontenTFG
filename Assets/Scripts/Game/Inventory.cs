@@ -156,8 +156,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    
-
     public void AddObjectInvt(int pos, string ntit, string descpt)
     {
         if (slots[pos].GetComponent<Slot>().empty)
@@ -266,7 +264,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-
     public void UpdatePickaxe()
     {
         if (levelPickaxe < 2)
@@ -355,7 +352,7 @@ public class Inventory : MonoBehaviour
         Slot k = keys[nkey].GetComponent<Slot>();
         if (!k.IsEmpty())
         {
-            if (k.GetID() == nkey)
+            if (k.Id == nkey)
                 return true;
         }
             return false;

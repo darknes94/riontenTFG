@@ -4,16 +4,33 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    
-    int ID;
-    string nameObj;
-    string description;
+    int _id;
+    string _nameObj;
+    string _description;
     public bool empty;
     Dictionary<int, int> keys, objs, pickLevel, pickSizeX, pickSizeY;
 
     GameController gameCont;
     Inventory inv;
     Selectable selector;
+
+    public int Id
+    {
+        get { return _id; }
+        set { _id = value; }
+    }
+
+    public string NameObj
+    {
+        get { return _nameObj; }
+        set { _nameObj = value; }
+    }
+
+    public string Description
+    {
+        get { return _description; }
+        set { _description = value; }
+    }
 
     private void Awake()
     {
@@ -51,35 +68,10 @@ public class Slot : MonoBehaviour
         inv = FindObjectOfType<Inventory>();
         selector = GetComponent<Selectable>();
     }
+
     void Start()
     {
-    }
 
-    public int GetID()
-    {
-        return ID;
-    }
-    public void SetID(int newID)
-    {
-        ID = newID;
-    }
-
-    public string GetName()
-    {
-        return nameObj;
-    }
-    public void SetName(string newN)
-    {
-        nameObj = newN;
-    }
-
-    public string GetDescription()
-    {
-        return description;
-    }
-    public void SetDescription(string newD)
-    {
-        description = newD;
     }
 
     public bool IsEmpty()
@@ -90,8 +82,8 @@ public class Slot : MonoBehaviour
     public void UpdateSlotAmulets(int pos, string ntit, string descpt)
     {
         empty = false;
-        nameObj = ntit;
-        description = descpt;
+        _nameObj = ntit;
+        _description = descpt;
 
         Image imgSp = GetComponent<Image>();
         // No necesita diccionario, pos coincide con la posicion del sprite
@@ -103,8 +95,8 @@ public class Slot : MonoBehaviour
     public void UpdateSlotKeys(int pos, string ntit, string descpt)
     {
         empty = false;
-        nameObj = ntit;
-        description = descpt;
+        _nameObj = ntit;
+        _description = descpt;
 
         Image imgSp = GetComponent<Image>();
         imgSp.sprite = gameCont.itemsSprites[keys[pos]];
@@ -115,8 +107,8 @@ public class Slot : MonoBehaviour
     public void UpdateSlotInvt(int pos, string ntit, string descpt)
     {
         empty = false;
-        nameObj = ntit;
-        description = descpt;
+        _nameObj = ntit;
+        _description = descpt;
 
         Image imgSp = GetComponent<Image>();
         imgSp.sprite = gameCont.itemsSprites[objs[pos]];
@@ -164,7 +156,7 @@ public class Slot : MonoBehaviour
     {
         if (!empty)
         {
-            inv.UpdateTitDescp(nameObj, description);
+            inv.UpdateTitDescp(_nameObj, _description);
             inv.MoveSelector(this.gameObject);
         }
     }
@@ -174,6 +166,4 @@ public class Slot : MonoBehaviour
         inv.UpdateTitDescp("", "");
         inv.OcultSelector();
     }
-
-    
 }
